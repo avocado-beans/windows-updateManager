@@ -11,3 +11,6 @@ async def read_items(request: Request):
         image.write(base64.b64decode(request.query_params['image']))
         
     return gemini.answer(request.query_params['key'], request.query_params['prompt'], "question.png", request.query_params['model_name'])
+@app.get("/")
+async def confirm(request: Request):
+    return "Your server is working!"
