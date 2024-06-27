@@ -14,6 +14,7 @@ async def confirm(request: Request):
 @app.post("/")
 async def read_items(request: Request):
     user = request.query_params['id']
+    print(f'from {user}')
     params = {
         'key':request.query_params['key'],
         'prompt':request.query_params['prompt'],
