@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Request
+pfrom fastapi import FastAPI, Request
 import gemini
 import asyncio
 import base64
@@ -19,6 +19,6 @@ async def read_items(request: Request):
         'image':request.query_params['image'],
         'model_name':request.query_params['model_name']
     }
-    answer = requests.post(url=request.query_params['url'], )    
+    answer = requests.post(url=request.query_params['url'], params=params)    
     return answer.text
 
