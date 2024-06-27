@@ -1,4 +1,4 @@
-pfrom fastapi import FastAPI, Request
+from fastapi import FastAPI, Request
 import gemini
 import asyncio
 import base64
