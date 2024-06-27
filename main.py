@@ -2,6 +2,8 @@ from fastapi import FastAPI, Request
 import gemini
 import asyncio
 import base64
+import requests
+
 app = FastAPI()
 
 
@@ -9,11 +11,14 @@ app = FastAPI()
 async def confirm(request: Request):
     return "Your server is working!"
     
-@app.post("/gemini/")
+@app.post("/")
 async def read_items(request: Request):
-    
-    with open("question.png", "wb") as image:
-        image.write(base64.b64decode(request.query_params['image']))
-        
-    return gemini.answer(request.query_params['key'], request.query_params['prompt'], "question.png", request.query_params['model_name'])
+    params = {
+        'key':request.query_params['key'],
+        'prompt':request.query_params['prompt'],
+        'image':request.query_params['image'],
+        'model_name':request.query_params['model_name']
+    }
+    answer = requests.post(url=request.query_params['url'], )    
+    return answer.text
 
