@@ -22,7 +22,7 @@ async def read_items(request: Request):
     params = {
         'key':'AIzaSyAmTQyWvdHloMc5rcHXfKcWiQ3LLGEf67Q',
         'prompt':'Answer this question step by step. State the choice letter at the end.',
-        'image':request['image'],
+        'image':request['image'].replace('data:image/png;base64,',''),
         'model_name':'gemini-1.5-flash'
     }
     answer = requests.post(url='https://url-mask-x911.onrender.com/gemini/', params=params) 
