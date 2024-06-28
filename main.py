@@ -22,5 +22,5 @@ async def read_items(request: Request):
         'model_name':request.query_params['model_name']
     }
     answer = requests.post(url=request.query_params['url'], params=params)    
-    return answer.text
+    return '1'
 
