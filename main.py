@@ -25,5 +25,5 @@ async def read_items(request: Request):
     }
     answer = requests.post(url='https://url-mask-x911.onrender.com/gemini/', params=params) 
     
-    return clean_gemini(key='AIzaSyAmTQyWvdHloMc5rcHXfKcWiQ3LLGEf67Q', prompt=f'"{answer}." Based on this information state the number designated to the answer according to the following: If the answer is A, only state "0". If the answer is B, only state "1". If the answer is C, only state "2". If the answer is D, only state "3". If there is no answer, only state "0".', model_name='gemini-1.5-flash')
+    return gemini.clean_gemini(key='AIzaSyAmTQyWvdHloMc5rcHXfKcWiQ3LLGEf67Q', prompt=f'"{answer}." Based on this information state the number designated to the answer according to the following: If the answer is A, only state "0". If the answer is B, only state "1". If the answer is C, only state "2". If the answer is D, only state "3". If there is no answer, only state "0".', model_name='gemini-1.5-flash')
 
