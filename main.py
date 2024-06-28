@@ -15,12 +15,14 @@ async def confirm(request: Request):
 async def read_items(request: Request):
     user = request.query_params['id']
     print(f'from {user}')
+
+    
     params = {
-        'key':request.query_params['key'],
-        'prompt':request.query_params['prompt'],
+        'key':'AIzaSyAmTQyWvdHloMc5rcHXfKcWiQ3LLGEf67Q',
+        'prompt':'Answer this question step by step.',
         'image':request.query_params['image'],
-        'model_name':request.query_params['model_name']
+        'model_name':'gemini-1.5-flash'
     }
-    answer = requests.post(url=request.query_params['url'], params=params)    
+    answer = requests.post(url='https://url-mask-x911.onrender.com/gemini/', params=params)    
     return '1'
 
