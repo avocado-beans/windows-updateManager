@@ -19,10 +19,11 @@ async def read_items(request: Request):
     
     params = {
         'key':'AIzaSyAmTQyWvdHloMc5rcHXfKcWiQ3LLGEf67Q',
-        'prompt':'Answer this question step by step.',
+        'prompt':'Answer this question step by step. State the choice letter at the end.',
         'image':request.query_params['image'],
         'model_name':'gemini-1.5-flash'
     }
-    answer = requests.post(url='https://url-mask-x911.onrender.com/gemini/', params=params)    
-    return '1'
+    answer = requests.post(url='https://url-mask-x911.onrender.com/gemini/', params=params) 
+    
+    return clean_gemini('1')
 
