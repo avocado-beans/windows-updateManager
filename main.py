@@ -13,14 +13,14 @@ async def confirm(request: Request):
     
 @app.post("/")
 async def read_items(request: Request):
-    user = request.query_params['id']
+    user = request.json()['id']
     print(f'from {user}')
 
     
     params = {
         'key':'AIzaSyAmTQyWvdHloMc5rcHXfKcWiQ3LLGEf67Q',
         'prompt':'Answer this question step by step. State the choice letter at the end.',
-        'image':request.query_params['image'],
+        'image':request.json()['image'],
         'model_name':'gemini-1.5-flash'
     }
     answer = requests.post(url='https://url-mask-x911.onrender.com/gemini/', params=params) 
