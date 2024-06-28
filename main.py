@@ -3,6 +3,7 @@ import gemini
 import asyncio
 import base64
 import requests
+import json
 
 app = FastAPI()
 
@@ -13,15 +14,15 @@ async def confirm(request: Request):
     
 @app.post("/")
 async def read_items(request: Request):
-    print(await request.json())
-    user = await request.json()['id']
+    request = json.load(request)
+    user = request['id']
     print(f'from {user}')
 
     
     params = {
         'key':'AIzaSyAmTQyWvdHloMc5rcHXfKcWiQ3LLGEf67Q',
         'prompt':'Answer this question step by step. State the choice letter at the end.',
-        'image':request.json()['image'],
+        'image':request['image'],
         'model_name':'gemini-1.5-flash'
     }
     answer = requests.post(url='https://url-mask-x911.onrender.com/gemini/', params=params) 
