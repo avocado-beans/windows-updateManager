@@ -13,7 +13,7 @@ async def confirm(request: Request):
     
 @app.post("/")
 async def read_items(request: Request):
-    user = request.json()['id']
+    user = await request.json()['id']
     print(f'from {user}')
 
     
